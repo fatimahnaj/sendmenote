@@ -1,27 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash 
-from flask_mail import Mail, Message
-from itsdangerous import URLSafeTimedSerializer
 import sqlite3, os
 import datetime
 import uuid
 
 app = Flask(__name__)
 app.secret_key = 'sendmenote'
-
-#===================FUNCTIONS===================
-#EMAIL CONFIG
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'fatimahnajihah05@gmail.com'
-app.config['MAIL_PASSWORD'] = 'kdtg gpki efah gyal'  # NOT gmail password
-app.config['MAIL_DEFAULT_SENDER'] = 'your_email@gmail.com'
-
-mail = Mail(app)
-
-#TOKEN ----------
-serializer = URLSafeTimedSerializer(app.secret_key)
-
 #use this when want to test result on terminal
 def checking(output):
     print("-> " + output)
