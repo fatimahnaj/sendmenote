@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS NoteDatabase;
+CREATE TABLE NoteDatabase (
+    noteID INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    notes TEXT NOT NULL,
+    date TEXT NOT NULL
+);

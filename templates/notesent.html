@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sendmenote</title>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+        <h1>sendmenote</h1>
+    </div>
+  </header>
+
+  <main>
+    <section>
+        <div class="image-area">
+            <p class="text1">From : {{ username | default('anon') }}</p>
+            <p class="text2">{{ note | default('No note available yet.') }}</p>
+        </div>
+        <div class="instruction">
+            <h2>Note sent! Thank you do {{ username | default('anon') }}</h2>
+            <form method="GET" action="{{url_for('newnote')}}">
+                <button type="submit">send another note</button>
+            </form>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 sendmenote</p>
+    <p>hi gang. this is a random side project that i do for fun cs i wanna practice my web dev knowledge. 
+        for now u can only send note to me (tims) but later on when im rajin enough 
+        (which prolly never) i'll try to add more features.</p>
+    
+  </footer>
+
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Knewave&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+*{ box-sizing: border-box;}
+body { margin: 0; background-color: #fefefe; scroll-behavior: smooth;}
+
+.navbar {
+    height: 40px;
+    background: #3261fb; 
+    display: flex; 
+    color: rgb(255, 255, 255);
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 40px; 
+}
+
+section { 
+    height:600px; 
+    font-family: "Gloria Hallelujah";
+}
+
+.image-area{
+    position: relative;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    font-family: "Gloria Hallelujah";
+    color: #1818eb;
+    background-image: url("/static/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* text position */
+.text1{
+    position: absolute;
+    top: 90px;
+    left: 190px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text2{
+    position: absolute;
+    max-width: 300px;
+    top: 135px;
+    left: 130px;
+    font-size: 18px;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.instruction {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.instruction h2 {
+    margin:0;
+}
+button {
+    margin: 0;
+    background-color: #1818eb;
+    width: 200px;
+    height: 40px;
+    border-radius: 0.6rem;
+    border-width: 1.15px;
+    border: none;
+    color: #fff;
+    font-family: "Gloria Hallelujah";
+}
+
+.instruction button:hover{
+    background-color: #262682;
+    transition: all 0.475s;
+}
+
+footer {
+    padding: 10px 40px; 
+    background-color: #3261fb;
+    height: 200px;
+    color: white;
+}
+</style>
+</html>
